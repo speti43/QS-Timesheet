@@ -1,7 +1,7 @@
 <form>
   <ion-grid>
     <ion-row class="ion-justify-content-start">
-      <ion-col size="4" offset="4">
+      <ion-col size="12" size-lg="4" offset-lg="4">
         <p-calendar class="d-flex-col" name="date" [(ngModel)]="date" [inline]="true" [firstDayOfWeek]="1">
           <ng-template pTemplate="date" let-date>
             <span *ngIf="date.day <= 24" [ngClass]="{'bg-success': (date.day < 21 && date.day > 10) }"
