@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { Tab1Page as TimesheetPage } from './timesheet.page';
-
+import { TimesheetPage } from './timesheet.page';
 const routes: Routes = [
   {
     path: '',

@@ -2,10 +2,12 @@ import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Tab1Page } from './timesheet.page';
+import { TimesheetPage } from './timesheet.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { TimesheetPageRoutingModule } from './timesheet-routing.module';
+import { TimesheetListComponent } from './timesheet-list/timesheet-list.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -13,8 +15,9 @@ import { TimesheetPageRoutingModule } from './timesheet-routing.module';
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    TimesheetPageRoutingModule
+    TimesheetPageRoutingModule,
+    SharedModule,
   ],
-  declarations: [Tab1Page]
+  declarations: [TimesheetPage, TimesheetListComponent],
 })
 export class TimesheetPageModule {}
