@@ -1,5 +1,7 @@
 {
   "name": "QS-Timesheet",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
