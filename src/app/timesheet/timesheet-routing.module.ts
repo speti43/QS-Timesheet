@@ -5,6 +5,10 @@ const routes: Routes = [
   {
     path: '',
     component: TimesheetPage,
+  },
+  {
+    path: ':id/details',
+    loadChildren: () => import('./timesheet-details/timesheet-details.module').then( m => m.TimesheetDetailsPageModule)
   }
 ];
 

@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>timesheet-details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Ems Austria</ion-card-subtitle>
+      <ion-card-title>2022.07.08 12:00 - 16:00</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form #f="ngForm">
+        <ion-grid>
+          <ion-row>
+            <ion-col sizeMd="6" offsetMd="3">
+              <ion-item>
+                <ion-label>Time</ion-label>
+                <ion-datetime-button datetime="from"
+                  [(ngModel)]="ts.from"></ion-datetime-button>
+                -
+                <ion-datetime-button datetime="to"
+                  [(ngModel)]="ts.to"></ion-datetime-button>
+              </ion-item>
+
+              <ion-modal [keepContentsMounted]="true">
+                <ng-template>
+                  <ion-datetime id="from"></ion-datetime>
+                </ng-template>
+              </ion-modal>
+              <ion-modal [keepContentsMounted]="true">
+                <ng-template>
+                  <ion-datetime id="to"></ion-datetime>
+                </ng-template>
+              </ion-modal>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col sizeMd="6" offsetMd="3">
+              <ion-item>
+                <ion-label position="floating">Project</ion-label>
+                <ion-input type="text" name="price" [(ngModel)]="ts.project"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col sizeMd="6" offsetMd="3">
+              <ion-item>
+                <ion-label position="floating">Task</ion-label>
+                <ion-input name="imageUrl" [(ngModel)]="ts.task"></ion-input>
+              </ion-item>
+
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col sizeMd="6" offsetMd="3">
+              <ion-button color="success" (click)="save()">Save</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
