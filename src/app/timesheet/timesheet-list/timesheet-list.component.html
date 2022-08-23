@@ -17,25 +17,12 @@
 
 
 <ion-list>
-  <ion-item-sliding>
-    <ion-item routerLink="1/details">
+  <ion-item-sliding *ngFor="let ts of tsList">
+    <ion-item [routerLink]="ts.id+'/details'">
       <ion-label>
-        <h2> Ems Austria</h2>
-        <p>2022.07.08 12:00 - 16:00</p>
+        <h2> {{ts.project}} - {{ts.task}}</h2>
+        <p>{{ts.from | date}} - {{ts.to | date}}</p>
       </ion-label>
-    </ion-item>
-    <ion-item-options side="end">
-      <ion-item-option>Edit</ion-item-option>
-    </ion-item-options>
-  </ion-item-sliding>
-
-  <ion-item-sliding>
-    <ion-item>
-      <ion-label>
-        <h3>QS rezsi </h3>
-        <p>2022.07.08 10:00 - 12:00</p>
-      </ion-label>
-
     </ion-item>
     <ion-item-options side="end">
       <ion-item-option>Edit</ion-item-option>

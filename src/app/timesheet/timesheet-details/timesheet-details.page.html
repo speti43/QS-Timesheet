@@ -1,14 +1,14 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>timesheet-details</ion-title>
+    <ion-title>Timesheet details</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card>
+  <ion-card *ngIf="ts">
     <ion-card-header>
-      <ion-card-subtitle>Ems Austria</ion-card-subtitle>
-      <ion-card-title>2022.07.08 12:00 - 16:00</ion-card-title>
+      <ion-card-subtitle>{{ts.project}} - {{ts.task}}</ion-card-subtitle>
+      <ion-card-title></ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
@@ -18,11 +18,9 @@
             <ion-col sizeMd="6" offsetMd="3">
               <ion-item>
                 <ion-label>Time</ion-label>
-                <ion-datetime-button datetime="from"
-                  [(ngModel)]="ts.from"></ion-datetime-button>
+                <ion-datetime-button datetime="from" name="from" [(ngModel)]="ts.from"></ion-datetime-button>
                 -
-                <ion-datetime-button datetime="to"
-                  [(ngModel)]="ts.to"></ion-datetime-button>
+                <ion-datetime-button datetime="to" name="to" [(ngModel)]="ts.to"></ion-datetime-button>
               </ion-item>
 
               <ion-modal [keepContentsMounted]="true">

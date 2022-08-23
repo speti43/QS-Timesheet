@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Timesheet } from 'src/app/models/timesheet';
+import { TimesheetService } from '../timesheet.service';
 
 @Component({
   selector: 'app-timesheet-details',
@@ -8,13 +10,13 @@ import { Timesheet } from 'src/app/models/timesheet';
 })
 export class TimesheetDetailsPage implements OnInit {
   ts: Timesheet;
-  constructor() {
-    this.ts = {
-      from: new Date(),
-      to: new Date(),
-      project: 'Ems',
-      task: 'Development',
-    };
+  constructor(
+    private tsService: TimesheetService,
+    private route: ActivatedRoute
+  ) {
+    route.paramMap.subscribe((r) => {
+      this.ts = tsService.getById(+r.get('id'));
+    });
   }
 
   ngOnInit() {}
