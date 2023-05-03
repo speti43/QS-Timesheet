@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Timesheet } from 'src/app/models/timesheet';
+import { TimesheetList } from 'src/app/models/timesheet';
 import { TimesheetService } from '../timesheet.service';
 
 @Component({
@@ -9,9 +9,13 @@ import { TimesheetService } from '../timesheet.service';
 })
 export class TimesheetListComponent implements OnInit {
   date: Date;
-  tsList: Timesheet[];
+  tsList: TimesheetList;
+  keys: string[];
   constructor(private tsService: TimesheetService) {
-    this.tsList = tsService.getCurrentMonth();
+    tsService.getCurrentMonth().then((r) => {
+      this.tsList = r;
+      this.keys = Object.keys(r);
+    });
   }
 
   ngOnInit() {}

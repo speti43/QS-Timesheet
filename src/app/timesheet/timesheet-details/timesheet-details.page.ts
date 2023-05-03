@@ -15,10 +15,12 @@ export class TimesheetDetailsPage implements OnInit {
     private route: ActivatedRoute
   ) {
     route.paramMap.subscribe((r) => {
-      this.ts = tsService.getById(+r.get('id'));
+      tsService.getById(r.get('id')).then((r) => (this.ts = r));
     });
   }
 
   ngOnInit() {}
-  save() {}
+  save() {
+    this.tsService.addNew(this.ts);
+  }
 }

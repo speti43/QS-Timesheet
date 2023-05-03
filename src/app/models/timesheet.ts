@@ -5,3 +5,7 @@ export class Timesheet {
   project: string;
   task: string;
 }
+
+export class TimesheetList {
+  [id: string]: Timesheet;
+}
